@@ -35,6 +35,7 @@ All stored and navigated URLs are sanitized and allowlisted to those trusted dom
 ## Key Features
 
 - Channel playback controls: `Back`, `Stop`, `Skip`
+- Rewinds all shows/movies automatically to start on HBOMax and Hulu. Netflix does not support this functionality.
 - Per-channel playback mode:
   - `Sequential`
   - `True Random`
