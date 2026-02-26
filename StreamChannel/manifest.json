@@ -1,0 +1,50 @@
+{
+  "manifest_version": 3,
+  "name": "Streaming Channels",
+  "version": "1.0.0",
+  "description": "Create and play randomized channels on Netflix, Hulu, and Max.",
+  "permissions": ["storage", "tabs", "scripting"],
+  "host_permissions": [
+    "*://*.netflix.com/*",
+    "*://*.hulu.com/*",
+    "*://*.max.com/*",
+    "*://*.hbomax.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": {
+      "16": "images/icon16.png",
+      "48": "images/icon48.png",
+      "128": "images/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "images/icon16.png",
+    "48": "images/icon48.png",
+    "128": "images/icon128.png"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://*.netflix.com/*"],
+      "js": ["content/netflix.js"]
+    },
+    {
+      "matches": ["*://*.hulu.com/*"],
+      "js": ["content/hulu.js"],
+      "all_frames": true
+    },
+    {
+      "matches": ["*://*.max.com/*"],
+      "js": ["content/max.js"],
+      "all_frames": true
+    },
+    {
+      "matches": ["*://*.hbomax.com/*"],
+      "js": ["content/max.js"],
+      "all_frames": true
+    }
+  ]
+}

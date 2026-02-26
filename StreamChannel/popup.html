@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>StreamChannel</title>
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <main class="app">
+    <section class="hero">
+      <h1>StreamChannel</h1>
+      <div class="hero-right">
+        <p id="playback-status" class="status-pill">Idle</p>
+        <div class="playback-controls">
+          <button id="back-btn" class="btn btn-ghost" title="Previous item">Back</button>
+          <button id="stop-btn" class="btn btn-ghost" title="Stop playback">Stop</button>
+          <button id="skip-btn" class="btn btn-ghost" title="Next item">Skip</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>New Channel</h2>
+      <div class="field-row">
+        <input type="text" id="new-channel-name" placeholder="Weekend Mix">
+        <button id="add-channel-btn" class="btn btn-primary">Create</button>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>Add Current Page</h2>
+      <div class="current-item">
+        <p id="current-show-title" class="item-title">Loading...</p>
+        <p id="current-show-meta" class="item-meta"></p>
+      </div>
+      <div class="settings-grid">
+        <label class="setting-check">
+          <input type="checkbox" id="cc-default-enabled">
+          <span>Default CC On</span>
+        </label>
+        <label class="setting-check">
+          <input type="checkbox" id="maximize-player-enabled">
+          <span>Auto Maximize</span>
+        </label>
+        <label class="setting-field">
+          <span>CC Language</span>
+          <select id="cc-language-select">
+            <option value="en" selected>English</option>
+            <option value="en-US">English (US)</option>
+            <option value="en-GB">English (UK)</option>
+          </select>
+        </label>
+      </div>
+      <div class="field-grid">
+        <select id="channel-select"></select>
+      </div>
+      <button id="add-show-btn" class="btn btn-accent">Add To Channel</button>
+    </section>
+
+    <section class="panel">
+      <h2>Batch Add URLs</h2>
+      <textarea id="batch-urls-input" rows="5" placeholder="Paste one URL per line"></textarea>
+      <button id="add-batch-btn" class="btn btn-primary">Add URLs To Selected Channel</button>
+    </section>
+
+    <section class="panel">
+      <h2>Channels</h2>
+      <div class="tool-row">
+        <button id="export-data-btn" class="btn btn-ghost">Export Data</button>
+        <button id="import-data-btn" class="btn btn-ghost">Import Data</button>
+        <input id="import-data-file" type="file" accept="application/json" hidden>
+      </div>
+      <ul id="channels-list" class="channels"></ul>
+    </section>
+  </main>
+  <script src="popup.js"></script>
+</body>
+</html>
